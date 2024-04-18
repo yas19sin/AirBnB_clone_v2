@@ -8,21 +8,21 @@ from unittest.mock import patch
 from time import sleep
 from os import getenv
 import pycodestyle
-import inspect
 import unittest
 storage_t = getenv("HBNB_TYPE_STORAGE")
 
-class test_Amenity(test_basemodel):
-    """ """
+
+class TestAmenity(test_basemodel.TestBaseModel):
+    """Test Amenity class"""
 
     def __init__(self, *args, **kwargs):
-        """ """
+        """Setup for test"""
         super().__init__(*args, **kwargs)
         self.name = "Amenity"
         self.value = Amenity
 
     def test_name2(self):
-        """ """
+        """Test Amenity.name is a str"""
         new = self.value()
         self.assertEqual(type(new.name), str)
 

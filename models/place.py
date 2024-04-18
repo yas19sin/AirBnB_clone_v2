@@ -2,7 +2,6 @@
 """This is the place class"""
 import shlex
 from sqlalchemy.ext.declarative import declarative_base
-#from models.amenity import Amenity
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
@@ -19,6 +18,7 @@ if models.storage_tp == "db":
                                  ForeignKey("amenities.id"),
                                  primary_key=True,
                                  nullable=False))
+
 
 class Place(BaseModel, Base):
     """This is the class for Place
@@ -65,7 +65,7 @@ class Place(BaseModel, Base):
         latitude = 0.0
         longitude = 0.0
         amenity_ids = []
-    
+
     if models.storage_tp != "db":
         @property
         def reviews(self):
@@ -93,7 +93,7 @@ class Place(BaseModel, Base):
                 if amenity.place_id == self.id:
                     amenity_list.append(amenity)
             return amenity_list
-        
+
         @amenities.setter
         def amenities(self, obj):
             """setter attribute adds a new amenity to the current place"""

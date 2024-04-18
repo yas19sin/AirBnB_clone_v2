@@ -10,15 +10,26 @@ import pycodestyle
 
 
 class test_basemodel(unittest.TestCase):
-    """ """
+    """
+    Test cases for the BaseModel class.
+
+    This class contains methods that test the BaseModel class in various ways.
+    """
 
     def __init__(self, *args, **kwargs):
-        """ """
+        """ Constructor for the test_basemodel class.
+
+        Initializes the name and the value of the BaseModel class for testing.
+
+        Args:
+            *args: arbitrary arguments
+            **kwargs: arbitrary keyword arguments
+        """
         super().__init__(*args, **kwargs)
         self.name = 'BaseModel'
         self.value = BaseModel
-    """
-    A class to test pep8 on base_model file"""
+        """ The class to be tested """
+    """ A class to test pep8 on base_model file"""
     def test_pycodestyle(self):
         """
         Test pep8 format
@@ -35,7 +46,7 @@ class test_basemodel(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove('file.json')
-        except:
+        except Exception:
             pass
 
     def test_default(self):

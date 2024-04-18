@@ -19,8 +19,8 @@ class BaseModel:
     """
     if models.storage_tp == "db":
         id = Column(String(60), unique=True, nullable=False, primary_key=True)
-        created_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
-        updated_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
+        created_at = Column(DateTime, nullable=False, default=(datetime.now()))
+        updated_at = Column(DateTime, nullable=False, default=(datetime.now()))
 
     def __init__(self, *args, **kwargs):
         """Instantiation of base model class
