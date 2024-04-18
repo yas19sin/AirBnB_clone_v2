@@ -14,7 +14,7 @@ class State(BaseModel, Base):
     Attributes:
         name: input name
     """
-    if models.storage_type == 'db':
+    if models.storage_tp == 'db':
         __tablename__ = "states"
         name = Column(String(128), nullable=False)
         cities = relationship("City", cascade='all, delete, delete-orphan',

@@ -1,27 +1,19 @@
 #!/usr/bin/python3
-""" unit test for State """
-import unittest
+""" """
+from tests.test_models.test_base_model import test_basemodel
 from models.state import State
-from datetime import datetime
 
 
-class StateTestCase(unittest.TestCase):
-    """ class for State test """
+class test_state(test_basemodel):
+    """ """
 
-    def test_state(self):
-        """existince"""
-        iNew = State()
-        self.assertTrue(hasattr(iNew, "id"))
-        self.assertTrue(hasattr(iNew, "created_at"))
-        self.assertTrue(hasattr(iNew, "updated_at"))
-        self.assertTrue(hasattr(iNew, "name"))
+    def __init__(self, *args, **kwargs):
+        """ """
+        super().__init__(*args, **kwargs)
+        self.name = "State"
+        self.value = State
 
-        """type test"""
-        self.assertIsInstance(iNew.id, str)
-        self.assertIsInstance(iNew.created_at, datetime)
-        self.assertIsInstance(iNew.updated_at, datetime)
-        self.assertIsInstance(iNew.name, str)
-
-
-if __name__ == '__main__':
-    unittest.main()
+    def test_name3(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.name), str)
